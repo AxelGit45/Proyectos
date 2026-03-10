@@ -1,0 +1,10 @@
+Pasos usados para crear un repositorio desde la terminal utilizando SO Linux >>
+
+_ Comence creando un nuevo directorio que almacenara todo el repositorio local
+_ Utilizando el comando " git add remote origin < URL del repositorio remoto >  " vincule mi repositorio local con mi repositorio remoto de github
+_ Cree la rama ' master ' con el comando " git branch -M  master "
+_ Luego se uso el comando " git init " para crear el repositorio local
+_ Seguido se uso el comando " git add . " para seleccionar todo el directorio y pasarlo a la etapa de  stage
+_ Para pasar los archivos seleccionados a la estapa de commit se uso el comando " git commit -m ' Primer commit ' " 
+_ Por ultimo se utilizo el comando " git push -u origin master " para subir los archivos seleccionados anteriormente a este repositorio externo
+  

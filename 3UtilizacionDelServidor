@@ -1,0 +1,47 @@
+Primeros pasos:
+
+_Conectarnos a travez de SSH al servidor desde otra maquina, en este caso desde otra maquina virtual al servidor
+	Pasos: 
+			*Saber la IP de mi servidor: Utilizo el comando " ip a "  y en la parte 2 nos informa 
+			  > > inet 10.0.2.15/24 que es lo que buscabamos 
+			*Verificamos que este levantado el servidor, desde otra maquina realizamos el comando
+			  >> ping <ip del servidor > en cualquier consola
+			*Luego de verificar que los paquetes enviados por el comando ping <ip> son enviados
+			  y recividos correctamente, es decir no se pierde ninguno en lo posible, procedemos a conectarnos
+			  al servidor de forma remota como normalmente se hace. Es decir desde una maquina personal o de trabajo
+			  en la terminal. 
+			*Ingreso el siguiente comando en el servidor "sudo systemctl status ssh" que nos va informar del estado y los servicios
+			   de las aplicaciones que se estan ejecutando dicho de forma simple.
+			 *Como se ve en la captura no tenemos instalado el servidor de SSH
+			* Procedemos a utilizar el comando "sudo apt update"
+			* Luego instalamos el servidor con el comando "sudo apt install openssh-server -y "
+			* Habilitamos el servidor SSH con el comando "sudo systemctl enable ssh"
+			* Iniciamos el servidor SSH con el comando "sudo systemctl start ssh "
+			*Procedemos a verificar el estado del servidor SSH conel comando "sudo systemctl status ssh"
+			* Como vemos en la imagen nos muestra que el servidor esta "enabled" es decir habilitado y "Active" activo
+			*Procedemos entoces a instalar el cliente SSH en la maquina que se conectara posteriormente a mi servidor ubuntu  
+			*Antes verificamos que el servidor SSH este instalado en nuestra otra maquina simplemente con escribir "ssh" 
+			  en la consola
+			[Alternativas, por si no quiere usar la consola o no tiene otra maquina o simplemente no quiere hacerlo
+			desde su consola ==> Programa PuTTY, Moba Xterm con la cual  puede conectarse a distintos servidores a la vez ]
+			*Una vez verificado y utilizando la forma de su eleccion, en mi caso utilizare la consola.
+			Con el comando "ssh <nombre de usuario>@<IP> " , luego debe poner su contrasenia de usuario, accediendo finalmente 
+			a el servidor
+			-------------------------------------------------------------------------------------------------------------------------------------------
+			En caso de levantar el servidor en una maquina virtual y intentar conectarse por SSH a el desde otra maquina virtual, verifique
+			que AMBAS TENGAN IPS DISTINTAS. Si la configuracion de res de estas es NAT puede ocurrir que estas tengan la misma direccion IP
+			una posible solucion es cambiar la configuracion de red a "Adaptador Puente ", esto cambiaras sus IPs mediante el DHCP a una ip con la mascara
+			de su red local, es decir le asignara una IP parecida a la que tienen sus dispositivos fisicos en su red local. La opcion ideal es que pueda 
+			generar una red exclusiva para ambas maquinas ya que agregaria una proteccion mayor que solo utilizar el " Adatador Puente", un
+			comando util para ver su IP una vez cambio su configuracion de red es "ip address, este comando le dira la ip de su servidor, ya que si
+			utiliza el comando "ip a" puede que no le aparezca la ip de su servidor. Por ultimo verifique que puedan comunicarse con el comando 
+			"ping <IP>".
+			-------------------------------------------------------------------------------------------------------------------------------------------
+			
+Actualizar el Servidor:
+			_ Con el comando "sudo apt update" se buscaran todos los paquetes que se puedan actualizar del sistema y los actualizara
+			_Luego con el comando " sudo apt upgrade " instalara las acualizaciones del sistema correctamente 
+			[DEBEN HACERSE EN CONJUNTO Y EN ESE ORDEN PARA ACTUALIZAR EL SISTEMA CORRECTAMENTE]
+			
+			
+			

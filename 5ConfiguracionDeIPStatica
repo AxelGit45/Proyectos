@@ -1,0 +1,24 @@
+Porque es importante esto: Es muy importante porque el servidor puede almacenar aplicaciones que necesitan
+								esa IP para su correcto funcionamiento, si el DHCP la cambia constantemente puede
+								llegar a general un mal funcionamiento de las apps o no encontrarian al servidor
+								ya que su IP cambio lo cual lo deja fuera de servicio al  no puede comunicarse con otras maquinas
+
+Pasos para configurar una IP estatica: 
+	
+	>Primero identificamos la interfaz de red con el comando  "Ip link show" o " Ip a " y al lado del 2 se encuentra
+		nuestra interfaz.
+	>Segundo, debemos saber nuestra getawey (Direccion IP que me permite conectarme a internet), se puede saber 
+		con el comando " ip route " y a la derecha de la palabra que dice " default " estara la IP
+	>Luego buscamos el archivo que contiene la configuracion de la red para modificarlo
+		esto se hace directamente con el comando "sudo nano /etc/netplan/50-cloud-init.yaml  "
+	> El cambio al archivo es el sigiente:
+
+		Archivo antes:
+		IP: 192.168.1.32
+		getawey: 192.168.1.1 
+
+		Archivo despues:
+		IP: 192.168.1.100 
+		getawey: 192.168.1.1 
+	>Una vez realizados los cambios deben aplicarse, con el siguiente comando "sudo netplan apply" 
+	En este paso tambien se configuro el servidor DNS

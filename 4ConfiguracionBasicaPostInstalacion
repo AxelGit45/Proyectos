@@ -1,0 +1,16 @@
+Primeros pasos:
+				> Vamos a instalar las siguientes herramientas:
+						*curl: Sirve para realizar solicitudes HTTPS y HTTP, muy util para 
+								descargar archivos o probar APIS
+						*net-tools: Instala herramientas para configurar la red
+						* htop: Es el monitor interactivo de la CPU, es decir nos ayuda a ver su estado
+						* GIT: Nos va aservir para clonar repositorios de codigo fuente, algo bastante util
+				En este caso vamos a instalar todas las herramientas a la vez con el siguiente comando
+				> sudo apt install curl net-tools htop git -y
+				>Comprobamos que todo haya salido bien con los comandos
+						_ curl --version ----> debe devolver una version
+						_ git --version ----> debe devolver una version
+						_htop --version ----> debe devolver una version
+						_ ifconfig ------> debe devolver la ip de nuestro servidor
+						
+							 

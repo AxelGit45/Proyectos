@@ -1,0 +1,27 @@
+Primeros Comandos para administrar:
+
+	> adduser: Utilizado para crear usuarios dentro del servidor de lasiguiente manera
+				>> sudo adduser ana 
+				Luego de introducir los datos de "ana" crea el usuario con un directorio personal
+				>Cabe recalcar y puede hacer la prueba ustede mismo que si intentamos ingresar al usuaio
+				   con el que trabajamos anteriormente desde el nuevo creado ( ana ) no podra porque no
+				   tiene permisos y viceversa.
+	> usermod -aG : Este comando el cual no esta completo nos sirve para aniadir a un usuario al grupo
+						sudo, sin sacarlo de los grupos a los que ya pertenece.
+						El comando completo es " sudo usermod -aG sudo (USUARIO)  "
+	>  groups : Nos sirve para saber a que grupos pertenece un usuario de la siguiente forma " groups ana "
+	>chmod : Nos sirve para gestionar permisos de escritura lectura o ejecucion a una carpeta o archivo de la 
+				siguiente forma :
+						*Otorgar acceso total solo al propietario >> sudo chmod 700 test/
+	>ll : Nos lista todos los directorios o archivos incluso los ocultos y nos informa los permisos que tiene
+		su tamanio, fecha de creacion y su propietario, de la siguiente forma
+		>> ll (presione ENTER)
+	>chown : Nos sirve para cambiar de propietario un directorio, de la siguiente forma
+				>> sudo chown ana:ana test/ (entre los : no debe haber espacios sino interpreta que es un directorio)
+	>ps aux : Este comando nos sirve para listar todos los procesos que se esten ejecutando en el servidor
+	>htop : Este comando de igual forma sirve para ver los procesos pero de una manera mas interactiva
+	> reboot: Comando que reinicia el servidor/maquina
+	> shotdown: Comando para apagar la maquina y se utiliza de esta forma:
+					>> sudo shotdown -h now -----> como resultado se apaga la maquina en el momento
+	>df -h: Este comando nos muestra el uso del disco duro 
+	> free -h : Nos permite ver el usu de memoria			

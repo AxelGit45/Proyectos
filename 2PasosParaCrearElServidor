@@ -1,0 +1,29 @@
+Pasos:
+1) Se descargo la ISO de Ubunto Server de la pagina oficial https://ubuntu.com/download/server 
+2) Se configuro una maquina virtual en el programa Virtual Box con la ISO anteriormente descargada
+3) Una vez creada se inicia la maquina y se procede con la configuracion del servidor
+4) Configuracion:
+	Lenguaje: ENGLISH
+	Teclado: Spanish Latin America - Sin Indetify Keyboard-
+	Type of Installation: Ubuntu Server - First Option-
+	Network Configuration: select option --> Done  < se nos asigna automaticamente una direccion ip y muestra informacion del
+	adaptador de red y el nombre de nuestra interfaz de red  >
+	Proxy: Ninguno select --> Done
+	Ubuntu Archive Mirror Configuration: select --> Done  < Mirror: Servidor que contiene una copia exacta de los archivos oficiales de ubuntu >
+	Guide Storage Configuration: select --> Done < Utilizo toda la memoria que le asigne a la maquina virtual >
+										select --> Done => select --> Continue 
+	Profile Configuration: <Configuracion del Usuario que va a ADMINISTRAR el servidor > 
+							name: Axel
+							server-name: ubuntu-server
+							pick-username: axel  <Nombre del usuario para iniciar sesion>
+							password: ************** < Password del usuario> Obviamente no voy a poner la contrasenia REY 
+							axelubuntuserver
+							<axel >contra real
+	Upgrade to Ubunto Pro:  select option --> skip for now
+								select --> Continue
+	SSH Configuration: select --> Done < Se puede hacer despues sin ningun problema >
+	Feature Server Snaps: select --> Done < Iniciamos con un servidor limpio, las herramientas y programas los podemos
+												instalar despues>
+	Updating System: nothing to do
+	Installation Complete!  select --> reboot now 
+	

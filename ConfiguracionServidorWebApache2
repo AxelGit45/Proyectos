@@ -1,0 +1,10 @@
+Configuracion:
+
+	>Ubicado en nuestro servidor local, podemos acceder desde el navegador buscando la IP del Server Ubuntu
+	   , esto nos muestra el " index.html " que esta ubicado fuera del usuario, mas especificamente en la ruta
+	  " /var/www/html ", partiendo del directorio raiz " / " , ahi es donde el servidor ira  buscar lo que debe mostrar .
+	> Luego pasamos a cambiar el " index.html " que hay por defecto por uno decargado para cambiar como se ve el sitio
+	    , ubicandolo en un directorio llamado " mi-sitio " , entonces para lograr ver el nuevo sitio debemos ingresar en el navegador 
+	   la siguiente ruta " IP/mi-sitio " , con esa direccion nos mostrara nuestro nuevo sitio cargado.
+	
+	   

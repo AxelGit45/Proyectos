@@ -1,0 +1,6 @@
+Pasos que utilice para instalar el servidor web apache:
+	> Con el comando ' sudo apt install apache2 -y ' instale el servidor
+	> Luego los levante con el comando ' sudo systemctl start apache2 ' 
+	> Por ultimo lo deje habilitado para que siempre que encendamos el servidor Ubuntu levante el servidor apache2
+		con el comando ' sudo systemctl enable apache2 ' 
+

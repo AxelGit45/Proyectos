@@ -7,7 +7,7 @@ Primeros Comandos para administrar:
 				   con el que trabajamos anteriormente desde el nuevo creado ( ana ) no podra porque no
 				   tiene permisos y viceversa.
 	> usermod -aG : Este comando el cual no esta completo nos sirve para aniadir a un usuario al grupo
-						sudo, sin sacarlo de los grupos a los que ya pertenece.
+						sudo o a cualquier grupo, sin sacarlo de los grupos a los que ya pertenece.
 						El comando completo es " sudo usermod -aG sudo (USUARIO)  "
 	>  groups : Nos sirve para saber a que grupos pertenece un usuario de la siguiente forma " groups ana "
 	>chmod : Nos sirve para gestionar permisos de escritura lectura o ejecucion a una carpeta o archivo de la 
@@ -25,3 +25,8 @@ Primeros Comandos para administrar:
 					>> sudo shotdown -h now -----> como resultado se apaga la maquina en el momento
 	>df -h: Este comando nos muestra el uso del disco duro 
 	> free -h : Nos permite ver el usu de memoria			
+	>lsblk : Comando que nos lista los bloques del disco duro, sus particiones y informacion sobre ellas
+	>su (USUARIO): Este comando nos permite poder cambiar al usuario, pero nos pedira la contrase;a del mismo
+					si en cambio usamos el comando " su - (USUARIO)" nos permite cargar  todo el entorno del usuario al que 
+					cambiamos como si hubieramos iniciado sesion en ese usuraio desde el principio.
+  

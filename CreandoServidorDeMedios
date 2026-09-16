@@ -1,0 +1,38 @@
+Pasos:
+>Creamos una carpeta en nuestro servidor donde vamos a almacenar todos los medios, en la ruta "/srv/"
+	con el comando  " sudo mkdir /srv/media ", la carpeta se llamara media
+>Una vez creada pasamos a crear mas carpetas sepandolas por contenido dentro de la carpeta media
+>Luego pasamos a instalar jelyfine:
+	>Primero creamos un directorio GPG con el comando " sudo mkdir -p /etc/apt/keyrings "
+	>Ahora descargamos y guardamos la clave GPG de Jellyfine con el comando
+	"wget -O- https://repo.jellyfin.org/jellyfin_team.gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/jellyfin.gpg "
+	>Luego el siguiente comando para agregar el repositorio de jellyfine 
+	export VERSION_OS="$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)"
+	export VERSION_CODENAME="$(awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release)"
+	echo "deb [signed-by=/etc/apt/keyrings/jellyfin.gpg] https://repo.jellyfin.org/${VERSION_OS} ${VERSION_CODENAME} main" | sudo tee /etc/apt/sources.list.d/jellyfin.sources
+	>Luego debemos instalar jellyfine, antes podemos realizar un " sudo apt update " para verificar que no haya errores
+	>En el caso de que ocurra un error debemos hacer lo siguiente: (lo mas probable es que ocurra el error de la imagen)
+		
+		imagen Error:
+		
+		 
+		>Realizar el comando " sudo rm /etc/apt/sources.list.d/jellyfin.sources " 
+		>Luego el comando " sudo mkdir -p /etc/apt/keyrings wget -O- https://repo.jellyfin.org/jellyfin_team.gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/jellyfin.gpg > /dev/null "
+		>Luego este " . /etc/os-release "
+		>El siguiente " echo "deb [signed-by=/etc/apt/keyrings/jellyfin.gpg] https://repo.jellyfin.org/$ID $VERSION_CODENAME main" | sudo tee /etc/apt/sources.list.d/jellyfin.list "
+		>Y por ultimo este " sudo apt update "
+		>Una ver realizados los pasos anteriores podemos proceder a instalar jellyfin
+	>Usamos el comando " sudo apt install jellyfin -y " 
+	>Una vez instalada verificamos que el servicio este activo con el comando " sudo systemctl status jellyfin "
+	>En caso de que no lo este lo levantamos con el comando " sudo systemctl start jellyfin " 
+	>Y volvemos a chequear que este Activo
+	>Ahora podemos verlo y terminar de configurarlo en el navegador, entrando en la direccion ip del servidor
+	y especificando el puerto que utiliza jellyfin, de la siguiente forma " IP:8096 "
+	>En caso de no poder ver la pagina en el navegador, verifique que este activo el servicio de jellyfin con el comando
+	" sudo systemctl status jellyfin ", si lo ve activo pero arriba aparece "enabled" puede intentar activar el proceso con el comando
+	" sudo systemctl start jellyfin " luego verifique su estado con el primer comando, si lo ve activo intente de nuevo entrar desde el 
+	navegador, si aun asi no puede, verifique el estado de nuevo, lo mas probable es que este "inactivo" esto puede pasar por que 
+	no tenga suficiente espacio, por lo que jellyfin no arranca por precaucion. 
+	>Si esta en una maquina virtual puede agrandar el espacio de la maquina, minimo debe tener 11 gigas libres para que pueda arrancar
+	>Ahora para aumentar el espacio debe realizar otros pasos que involucran al espacio fisico y logico de la memoria.
+ 

@@ -1,0 +1,47 @@
+Pasos:
+	>Primero debemos descargar PHP con el siguiente comando " sudo apt install php php-gd php-mysql php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-imagick php-zip php-apcu php-json -y "
+	   y MariaDB con el siguiente comando " sudo apt install mariadb-server -y " 
+	>Luego se configura MariaDB con el siguiente comando " sudo mysql_secure_installation  " 
+	  y se responden las siguientes preguntas con: ENTER, n, y , y, y, y, y , asi finalizando la instalacion
+	>Luego para acceder a MariaDB lo hacemos con el siguiente comando " sudo mysql -u root -p " y ingresamos la password que
+	  creamos anteriormente. 
+	> Una vez ingresado a MariaDB debemos crear la bases de datos, esto involucra que debemos crear a un  usuario en la bases de datos seguido
+	  de la contrasenia (este usuario sera el que utilice la Nube )
+	>Los comandos para realizarlo son los siguientes:
+		>> CREATE DATABASE nexcloud; (Crea la base de datos de nombre " nexcloud" en MariaDB)
+		>> CREATE USER ' nexclouduser'@'localhost' IDENTIFIED BY ' .axel ' ; (Crea al usuario' USUARIO'@'UBICACIONUSUARIO ' y le asigno una contrasnia )
+		ACLARO QUE SI EL USUARIO TIENE UN ESPACIO EN EL NOMBRE ENTONCES TAMBIEN DEBO PONERLO CUANDO INICIE SESION
+		ES MUY SENSIBLE CON LOS NOMBRES Y CONTRASENIAS ***PRECAUCION***
+		>> GRANT ALL PRIVILIGES ON nexcloud.* TO   ' nexclouduser'@'localhost' ; (Le otorgo todos los privilegios al usuario creado en mi base de datos)
+		ACLARACION IMPORTANTE: Debe escribir tal cual el usuario como lo creo sino no lo encontrara en la base de datos, esto incluye 
+			hasta los espacios en blanco entre las ' ' .
+		>> FLUSH PRIVILIGES ;
+		>> EXIT;
+	>Comprobamos que este corriendo mariadb con el comando " sudo systemctl status mariadb " 
+	>Comprobamos que funcione PHP creando un archivo y mostrandolo en el navegador, con el siguiente comando 
+		" sudo nano /var/www/html/info.php ", una vez creado escribimos el codigo que nos mostrara la informacion
+		de PHP
+	>Ahora pasamos a descargar e instalar Nexcloud en nuestro servidor
+	  con el siguiente comando " wget https://download.nextcloud.com/server/releases/latest.tar.bz2 " 
+	>Una vez instalado, como es un achivo comprimido, hay que descomprimirlo con la herramienta " tar" pero para eso necesitamos
+	  antes instalar la herramienta " bzip2 " 
+	>Una vez instalada con el comando " sudo apt install bzip2 "
+	>Descomprimimos ahora si el archivo con el comando " tar -xjf latest.tar.bz2 "
+	>Como vemos se creo la carpeta " nextcloud " o directorio
+	>Luego cambiamos el propietario de la carpeta de forma recursiva, es decir incluido todo lo que hay en ella, ahora el propietario pasa a ser 
+	  apache representado en el sistema como " www-data " 
+	>Tambien al nuevo propietario le otorgamos todos los permisos, al grupo al que pertenece tambien y a otros solo lectura y ejecucion con el 
+	  comando " sudo chmod 775 /var/www/nextcloud/ " 
+	>Una vez echo procedemos a crear el archivo de configuracion de nextcloud lo creamos en la siguiente ruta y con el siguiente comando
+		" sudo nano /etc/apache2/sites-available/nextcloud.conf " y luego dentro introducimos el codigo como se ve en la imagen
+	Imagen: 
+	>Ahora podemos habilitar el sitio de nextcloud con el comando " sudo a2ensite nextcloud.conf " 
+	>Luego debemos habilitar el modo " read write" de apache ya que es necesario para nextcloud, con el comando 
+	  " sudo a2enmod rewrite"
+	>Reiniciamos apache para aplicar los cambios con el comando " sudo systemctl restart apache2 "
+	> Una vez echo podemos proceder a ver nuestro servicio Nexcloud en el navegador indicando 
+	" http://IP " y deberia aparecernos para que iniciemos sesion en Nexcloud introduciendo nombre de usuario de Nexcloud
+	contrasenia del usuario, luego indicamos la base de datos a la que se vinculara, nombre, usuario de la base de datos y contrasenia
+	 para al final instalarlo
+	> Una vez echo ya podremos visualizar en el navegador el servicio de nube de Nexcloud
+	> Nexcloud ya estaria en funcionamiento y listo para usar en nuestro servidor local, NO accesible mediante otros equipos    

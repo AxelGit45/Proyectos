@@ -1,0 +1,34 @@
+Pasos a seguir:
+	>Descargar e instalar samba en nuestro servidor con el comando " sudo apt install samba "
+	>Este comando descarga e instala samba que dicho de forma simple cuenta con 2 herramientas principales
+	" smbd " la cual se encarga de compartir archivos y  " nmbd " la cual se encarga del descubrimiento de la red
+	>Ahora creamos la carpeta compartida con el comando " sudo mkdir -p /srv/share "
+	>Editamos el archivo de configuracion de samba para compartir la carpeta como se ve en la imagen:
+	imagen :
+
+	>Ahora verificamos que el archivo smb.conf no tenga errores, con el comando " testparm "
+	>Ahora debemos reiniciar samba para aplicar los cambios, esto involucra las 2 herramientas por separado
+	con el siguiente comando " sudo systemctl restart smbd " y luego " sudo systemctl restart nmbd "
+	>En caso de tener un firewall deberiamos habilitar los puertos 137 138 139 y 445 para el correcto funcionamiento
+	de samba
+	>Echo esto, si quisieramos ingresar a la carpeta compartida desde el explorador de archivos, apareceria el siguiente cartel
+	imagen:
+	
+	>Lo que aremos ahora es habilitar el " acceso a invitado" desde el editor de politicas de grupo, aclaro que esto no se hace 
+	en el Server Ubuntu sino que se realiza en la maquina que quiera ver la carpeta compartida 
+	>Con el comando Windows+R se abre la ventana de Ejecutar y escribimos lo siguiente "  gpedit.msc , una vez entrado realizamos 
+	el siguiente recorrido 
+	>> Configuracion del equipo 
+								     >> Plantillas administrativas 
+																   >> Red
+																		>> Estacion de trabajo lanman
+																			>> Habilitar inicio de sesion de invitados no seguros 
+	>Una vez ahi marcamos la opcion Habilitada y clikeamos Aceptar 
+	>Una vez echo debemos reiniciar la maquina para aplicar los cambios		
+	>Si el problema de las crdenciales persiste simplemente utilice las credenciales del usuario donde creo la carpeta compartida
+	Imagen:
+	
+	>Una vez realizado, en la otra maquina podremos ver en la parte de archivos la carpeta compartida "SharedFolder" 
+	>Ahora ambas maquinas comparten una carpeta donde pueden transmitir cualquier tipo de archivo.
+	>Ya sea que cualquier maquina las cree las demas podran verlo
+	

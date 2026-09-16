@@ -1,0 +1,10 @@
+Primer paso:
+>Creacion de un usuario especifico para administrar el servidor con permisos de administrador, usamos el comando " sudo adduser NAME "
+	luego lo agregamos al grupo de super usuarios con el comando " sudo usermod -aG sudo NAME ", con esto lo agregamos al grupo de super usuarios.
+	Por ultimo le agregamos las claves SSH del usuario principal para usar SSH con el nuevo usuario.
+	Utilizamos el comando sudo cp -r /home/axel/.ssh/ /home/maria/    |   y luego el comando sudo chown -R maria:maria /home/maria/ .ssh/ 
+	para que sea el propietario de las claves SSH.
+>La utilizacion de ufw como firewall de nuestro servidor, ESTUDIAR
+>La utilizacion de unattended-upgrades para la automatizacion de actualizaciones
+
+

@@ -1,8 +1,7 @@
 # Ubuntu Home Server: guía completa del proyecto
 
 Guía paso a paso para construir un servidor doméstico sobre **Ubuntu Server 24.04 LTS** en VirtualBox. El proyecto reúne administración Linux, acceso remoto por SSH, red, firewall, usuarios, Samba, Apache, Nextcloud y Jellyfin.
-
-> Esta guía es una versión nueva y ampliada de `READMEGeneral.md`. El archivo original se conserva sin modificaciones.
+
 
 ## Índice
 
